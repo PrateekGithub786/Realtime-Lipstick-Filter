@@ -1,5 +1,8 @@
-function preload(){
+noseX = 0;
+noseY = 0;
 
+function preload() {
+  img = loadImage("https://i.postimg.cc/qRZJyfM6/output-onlinepngtools.png");
 }
 
 function setup(){
@@ -22,12 +25,14 @@ function gotPoses(results){
         console.log(results);
         console.log("Nose x = "+ results[0].pose.nose.x);
         console.log("Nose y = "+ results[0].pose.nose.y);
+        noseX = results[0].pose.nose.x;
+        noseY = results[0].pose.nose.y;
     }
 }
 
 function draw(){
     image(video, 0, 0, 300, 300);
-
+    image(img, noseX -30, noseY -0, 60, 35);
 }
 
 
